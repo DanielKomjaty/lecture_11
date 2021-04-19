@@ -21,9 +21,30 @@ def read_data(file_name, key):
         seqs = json.load(json_file)
 
     return seqs[key]
+
+def linear_search(seqs, wanted_number):
+    pozice = []
+    pocet = 0
+    for random in range(0, len(seqs)):
+        if seqs[random] == wanted_number:
+            pozice.append(random + 1)
+            pocet += 1
+
+    vysledek = {"positions": pozice, "count": pocet}
+    return vysledek
+
+
+
+
+
+
+
+
+
 def main():
-    read_data("sequential.json", "unordered_numbers")
-    pass
+    seqs = read_data("sequential.json", "unordered_numbers")
+
+    print(linear_search(seqs, 0))
 
 
 if __name__ == '__main__':
