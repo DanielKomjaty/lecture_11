@@ -34,7 +34,14 @@ def linear_search(seqs, wanted_number):
     return vysledek
 
 
-
+def pattern_search(seqs, pattern):
+    pozice = set()
+    idx = 0
+    while idx <= (len(seqs) - len(pattern)):
+        if seqs[idx:(idx + len(pattern))] == pattern:
+            pozice.add(f"{idx + 1}:{(idx + len(pattern))}")
+        idx += 1
+    return pozice
 
 
 
@@ -46,6 +53,9 @@ def main():
 
     print(linear_search(seqs, 0))
 
+    seqs = read_data("sequential.json", "dna_sequence")
+
+    print(pattern_search(seqs, pattern="ATA"))
 
 if __name__ == '__main__':
     main()
